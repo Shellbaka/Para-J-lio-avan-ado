@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Sans+Serif+Collection&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=SansSerifBldFLF&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=SansSerifBookFLF&display=swap" rel="stylesheet" />
+    <link rel="icon" href="/src/logo-menor.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=SansSerifBldFLF-Italic&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <link href="/css/formulario(ferias).css" rel="stylesheet" />
+    <title>Accenture | Solicitação de férias </title>
+    <style>
+       
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="imagemlogo">
+            <a href="/html/menu.html"> <img src="/src/accenture-logo.png" alt="Logo da Accenture" width="60" height="30"> 
+        </div>
+        <div class="header">
+            <ul class="meio"> 
+                <li><a href="services.html">Serviços</a></li>
+                <li><a href="about-us.html">Sobre nós</a></li>
+                <li><a href="contatos.html">Contatos</a></li>
+            </ul>
+            <ul class="icons"> 
+                <li><a href="#"><img src="/src/user.svg" alt="Menu" > </a>
+                <li><a href="#"><img src="/src/menu.svg" alt="Menu" > </a>
+            </ul>
+        </div>
+
+        <!-- SOLICITAÇÃO DE FERIAS - CASO SIM -->
+        <div class="etapa" id="etapa1" style="display: none;">
+            <div class="login-container">
+                <h3 class="login-title">Olá, <span id="nomeFuncionario"></span>!</h3>
+                <div id="mensagem">
+                    <h3 class="login-title2-yes">Você já pode solicitar suas férias, vamos lá??</h3>
+                    <p class="subtitle-yes">Estamos ansiosos para ajudá-lo(a) a planejar suas merecidas <br> férias. Prossiga para iniciar sua solicitação de férias.</p>
+                </div>
+                <button type="button" class="button-prosseguir" onclick="proximo()">PROSSEGUIR</button>
+            </div>
+        </div>
+
+        <!-- SOLICITAÇÃO DE FERIAS - CASO NÃO -->
+        <div class="etapa" id="etapa1-no" style="display: none;">
+            <div class="login-container">
+                <h3 class="login-title">Olá, <span id="nomeFuncionario"></span>!</h3>
+                <div id="mensagem">
+                    <h3 class="login-title2">Você ainda não pode solicitar suas férias!!</h3>
+                    <p class="subtitle2">Que pena, você ainda não tem o tempo de contribuição exigida <br> para solicitar as férias...</p>
+                </div>
+                <a class="saiba-mais" href="">Saiba mais...</a>
+                <a class="Voltarmenu" href="/html/menu.html">VOLTAR AO MENU</a>
+            </div>
+        </div>
+
+        <!-- SOLICITAÇÃO DE FERIAS - CASO SIM (ESCOLHER O PERIODO DE FERIAS)-->
+        <div class="etapa" id="etapa2" style="display: none;">
+            <div class="periodo-container">
+                <h2 class="login-title">Qual o período de férias?</h2>
+                <h3 class="login-subtitulo">Agora escolha entre essas opções, o período de férias.</h3>
+                <button type="button" class="periodo-button" onclick="selecionarPeriodo(5)">5 DIAS</button>
+                <button type="button" class="periodo-button" onclick="selecionarPeriodo(10)">10 DIAS</button>
+                <button type="button" class="periodo-button" onclick="selecionarPeriodo(20)">20 DIAS</button>
+                <button type="button" class="login-button" onclick="proximo()">PROSSEGUIR</button>
+            </div>
+        </div>
+
+        <!-- SOLICITAÇÃO DE FERIAS - CASO SIM (SELECIONAR A DATA)  -->
+        <div class="etapa" id="etapa3" style="display: none;">
+            <div class="calendario-container">
+                <h2 class="calendario-title">Selecione o período de férias:</h2>
+                <h3 class="calendario-subtitulo">Por favor, selecione a data de início e <br> a data de término das suas férias.</h3>
+                <div class="calendario">
+                    <label for="dataInicio">Data de Início:</label>
+                    <input type="text" id="dataInicio" name="dataInicio" class="form-input" required>
+                    <label for="dataTermino">Data de Término:</label>
+                    <input type="text" id="dataTermino" name="dataTermino" class="form-input" required>
+                </div>
+                <div class="botoes-container">
+                    <button type="button" class="confirmacao-button" onclick="anterior()">VOLTAR</button>
+                    <button type="button" class="confirmacao-button" onclick="validarDatas()">PROSSEGUIR</button>
+                </div>
+            </div>
+        </div>
+        <!-- Funções JavaScript -->
+        <script>
+    
+            // Configuração do Flatpickr para os seletores de data
+            flatpickr("#dataInicio", {
+                minDate: "today",
+                dateFormat: "d/m/Y",
+                onClose: function(selectedDates) {
+                    // Garante que a data de término seja posterior à data de início
+                    flatpickr("#dataTermino", {
+                        minDate: selectedDates[0] || "today",
+                        dateFormat: "d/m/Y"
+                    });
+                }
+            });
+
+            flatpickr("#dataTermino", {
+                minDate: "today",
+                dateFormat: "d/m/Y"
+            });
+
+            
+
+            function inicializarUI() {
+    // Ativar ou desativar botão de prosseguir na etapa 4 com base no nome
+    var nomeInput = document.getElementById('nomeFuncionario');
+    var btnProsseguir = document.querySelector("#etapa4 .confirmacao-button:nth-child(2)");
+    nomeInput.addEventListener('input', function() {
+        validarNome(btnProsseguir);
+    });
+
+    // Se houver mudanças no nome, verificar novamente
+    validarNome(btnProsseguir);
+
+    // validação de matricula e preenchimento de dados do usuário
+    carregarDadosUsuario();
+}
+
+function validarNome(botao) {
+    var nomeInput = document.getElementById('nomeFuncionario');
+    var nomeValido = nomeInput.value.trim().split(" ").length >= 2; // Checa se possui ao menos dois nomes
+    botao.disabled = !nomeValido; // Desativa o botão se não tiver nome válido
+}
+
+function carregarDadosUsuario() {
+    // Simulação de carregamento de dados
+    const currentUser = { name: "João", lastname: "Silva", matricula: "123456" };
+    if (currentUser) {
+        document.getElementById('nomeFuncionario').value = currentUser.name + ' ' + currentUser.lastname;
+        document.getElementById('matriculaFuncionario').value = currentUser.matricula;
+    } else {
+        alert('Erro: Não foi possível carregar os dados do usuário.');
+    }
+}
+
+
+
+            // Variáveis para armazenar as datas selecionadas
+            var dataInicioGlobal = '';
+            var dataTerminoGlobal = '';
+
+            // Função para validar as datas selecionadas
+            function validarDatas() {
+                var dataInicio = document.getElementById('dataInicio').value;
+                var dataTermino = document.getElementById('dataTermino').value;
+
+                // Lógica de validação das datas
+                if (!dataInicio || !dataTermino) {
+                    alert("Por favor, selecione ambas as datas.");
+                    return false;
+                }
+
+                var partesDataInicio = dataInicio.split('/');
+                var partesDataTermino = dataTermino.split('/');
+
+                var dataInicioObj = new Date(partesDataInicio[2], partesDataInicio[1] - 1, partesDataInicio[0]);
+                var dataTerminoObj = new Date(partesDataTermino[2], partesDataTermino[1] - 1, partesDataTermino[0]);
+
+                if (dataTerminoObj <= dataInicioObj) {
+                    alert("A data de término deve ser posterior à data de início.");
+                    return false;
+                }
+
+                // Armazenar as datas globalmente
+                dataInicioGlobal = dataInicio;
+                dataTerminoGlobal = dataTermino;
+
+                // Vá para a próxima etapa
+                proximo();
+                return false; // Impede o envio do formulário
+            }
+
+            // Variável para armazenar o período selecionado
+            var periodoSelecionado = ''; // Variável global para armazenar o período selecionado
+
+// Função para selecionar o período e armazenar na variável global
+function selecionarPeriodo(periodo) {
+    periodoSelecionado = periodo + ' DIAS';
+    atualizaBotaoProsseguir();
+    console.log('Período selecionado: ' + periodoSelecionado); // Console para debug
+}
+
+function confirmarSelecaoPeriodo() {
+    if (!periodoSelecionado) {
+        alert('Por favor, selecione um período para prosseguir.');
+        
+        return false; // Impede o prosseguimento
+    } 
+    return true; // Permite o prosseguimento 
+}
+            // Função para processar os dados na etapa de confirmação
+            function preencherDadosConfirmacao() {
+                document.getElementById('dataFerias').innerText = dataInicioGlobal + ' a ' + dataTerminoGlobal;
+                document.getElementById('periodoFerias').innerText = periodoSelecionado;
+            }
+
+            // Variável para controlar a etapa atual
+            var etapaAtual = 1;
+            var etapas = document.getElementsByClassName('etapa');
+
+            function mostrarEtapa(etapa) {
+                for (var i = 0; i < etapas.length; i++) {
+                    etapas[i].style.display = 'none';
+                }
+                document.getElementById('etapa' + etapa).style.display = 'block';
+
+                // Chama a função de preenchimento de dados na etapa de confirmação
+                if (etapa === 4) {
+                    preencherDadosConfirmacao();
+                }
+                document.addEventListener("DOMContentLoaded", function() {
+    atualizaBotaoProsseguir(); // Certifica que o botão começa desabilitado
+});
+            }
+
+
+
+            function anterior() {
+                if (etapaAtual > 1) {
+                    etapaAtual--;
+                    mostrarEtapa(etapaAtual);
+                }
+            }
+
+            function proximo() {
+    if (etapaAtual === 2) { // A etapa 2 é onde o período deve ser selecionado
+        // Confirma a seleção do período antes de prosseguir
+        var podeProsseguir = confirmarSelecaoPeriodo();
+        if (!podeProsseguir) return; // Impede progredir se o período não foi selecionado
+    }
+    if (etapaAtual < etapas.length) {
+        etapaAtual++;
+        mostrarEtapa(etapaAtual);
+    }
+}
+            // Mostrar a primeira etapa inicialmente
+            mostrarEtapa(etapaAtual);
+
+            
+
+            // Adiciona o evento de validação ao botão de prosseguir na etapa 4
+            document.addEventListener("DOMContentLoaded", function() {
+                const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+                if (currentUser) {
+                    // Preencher nome completo
+                    document.getElementById('nomeFuncionario').value = currentUser.name + ' ' + currentUser.lastname;
+                    // Preencher matrícula
+                    document.getElementById('matriculaFuncionario').value = currentUser.matricula;
+                } else {
+                    alert('Erro: Não foi possível carregar os dados do usuário.');
+                }
+
+                // Adiciona o evento de clique para o botão de prosseguir na etapa 4
+                const btnProsseguir = document.querySelector("#etapa4 .confirmacao-button:nth-child(2)");
+                btnProsseguir.addEventListener("click", validarNomeMatricula);
+            });
+
+            document.addEventListener("DOMContentLoaded", function() {
+    // Referências para inputs e botões
+    const nomeInput = document.getElementById('nomeFuncionario');
+    const prosseguirBtn = document.querySelector("#etapa4 .confirmacao-button:nth-child(2)");
+
+    // Validação inicial do botão (deve começar desativado)
+    prosseguirBtn.disabled = true;
+
+    // Função para validar o nome
+    
+
+    // Event listener para input de nome
+    nomeInput.addEventListener('input', validarNome);
+
+    // Adicionando evento de clique que valida antes de prosseguir
+    prosseguirBtn.addEventListener('click', function(event) {
+        validarNome(); // Garante que está validando mesmo se o usuário clica diretamente no botão
+        if (!prosseguirBtn.disabled) {
+            proximo(); // Chamada da função que leva para a próxima etapa
+        }
+    });
+
+    // Funções já existentes como `proximo()` devem ser incluídas ou referenciadas aqui se usadas fora deste bloco
+});
+        </script>
+
+
+
+        <!-- SOLICITAÇÃO DE FERIAS - CASO SIM (CONFIRMAR OS DADOS) -->
+        <div class="etapa" id="etapa4" style="display: none;">
+            <div class="confirmacao-container">
+                <h2 class="login-title">Confirme seus Dados</h2>
+                <div class="dados-container">
+                    <div class="form-group">
+                        <label for="nomeFuncionario" class="form-label">Nome e Sobrenome:</label>
+                        <input id="nomeFuncionario" class="confirmacao-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="matriculaFuncionario" class="form-label">Matrícula:</label>
+                        <input id="matriculaFuncionario" class="confirmacao-input" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="cargoFuncionario" class="form-label">Cargo:</label>
+                        <select id="cargoFuncionario" class="confirmacao-input">
+                            <option value="colaborador">Colaborador</option>
+                            <option value="gerente">Gerente</option>
+                            <!-- Adicione outras opções conforme necessário -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="periodoFerias" class="form-label">Período:</label>
+                        <span id="periodoFerias" class="confirmacao-input"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="dataFerias" class="form-label">Data selecionada:</label>
+                        <span id="dataFerias" class="confirmacao-input"></span>
+                    </div>
+                </div>
+                <div class="botoes-container">
+                    <button type="button" class="confirmacao-button" onclick="anterior()">VOLTAR</button>
+                    <button type="button" class="confirmacao-button" onclick="proximo()">PROSSEGUIR</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SOLICITAÇÃO DE FERIAS - CASO SIM (SOLICITAÇÃO ENVIADA) -->
+        <div class="etapa" id="etapa5" style="display: none;">
+            <div class="login-container">
+                <h3 class="login-title">Solicitação enviada! <span id="nomeFuncionario"></span>!</h3>
+                <div id="mensagem">
+                    <p class="subtitle2">Sua solicitação de férias foi recebida com sucesso! Em <br> breve, você receberá uma confirmação por e-mail.<br> Qualquer dúvida estamos à disposição.</p>
+                </div>
+                <a class="Voltarmenu" href="/html/menu.html">VOLTAR AO MENU</a>
+            </div>
+        </div>
+
+        <!-- FOOTER DA PÁGINA -->
+        <footer> 
+            <div class="container footer-content">
+                <!-- Logo da empresa -->
+                <div class="company-logo">
+                    <img src="/src/accenture-logo-maior.png" alt="Logo da Accenture" width="266" height="191">
+                </div>
+                <!-- Navegação -->
+                <div class="footer-nav">
+                    <h3>Navegação</h3>
+                    <ul>
+                        <li><a href="/html/menu.html">Home</a></li>
+                        <li><a href="#">Sobre nós</a></li>
+                        <li><a href="#">Contatos</a></li>
+                    </ul>
+                    <h3>Serviços</h3>
+                    <ul>
+                        <li><a href="/html/formulario(ferias).html">Solicitar férias</a></li>
+                        <li><a href="#">Solicitar contra-cheque</a></li>
+                        <li><a href="#">Solicitar vale-transporte</a></li>
+                        <li><a href="#">Solicitar vale alimentação/refeição</a></li>
+                    </ul>
+                </div>
+                <!-- Links rápidos -->
+                <div class="quick-links">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="#">Contate-nos</a></li>
+                        <li><a href="#">Perguntas frequentes</a></li>
+                    </ul>
+                </div>
+                <!-- Redes sociais -->
+                <div class="social-media">
+                    <h3>Nossas Redes Sociais</h3>
+                    <ul>
+                        <li><a href="https://www.facebook.com/accenture/?locale=pt_BR"><img src="/src/facebook.png" alt="Facebook"></a></li>
+                        <li><a href="https://www.instagram.com/accenturebrasil/"><img src="/src/instagram.png" alt="Instagram"></a></li>
+                        <li><a href="https://www.linkedin.com/company/accenture/"><img src="/src/linkedln.png" alt="LinkedIn"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Linha de créditos -->
+            <div class="footer-line">
+                <p>@2024 Squad 04, Residencia 2024.1</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

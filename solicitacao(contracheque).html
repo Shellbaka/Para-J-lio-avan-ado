@@ -1,0 +1,105 @@
+<!DOCTYPE html> 
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Sans+Serif+Collection&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=SansSerifBldFLF&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=SansSerifBookFLF&display=swap" rel="stylesheet" />
+    <link rel="icon" href="/src/logo-menor.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=SansSerifBldFLF-Italic&display=swap" rel="stylesheet" />
+    <link href="/css/solicitacao(contracheque).css" rel="stylesheet" />
+    <title>Accenture | Solicitação de férias </title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="imagemlogo">
+            <a href="./html/menu.html"> <img src="/src/accenture-logo.png" alt="Logo da Accenture" width="60" height="30"> </a>
+        </div>
+        <div class="header">
+            <ul class="meio"> 
+                <li><a href="services.html">Serviços</a></li>
+                <li><a href="about-us.html">Sobre nós</a></li>
+                <li><a href="contatos.html">Contatos</a></li>
+            </ul>
+            <ul class="icons"> 
+                <li><a href="/html/usuario.html"><img src="/src/user.svg" alt="Menu" > </a></li>
+                <li><a href="#"><img src="/src/menu.svg" alt="Menu" > </a></li>
+            </ul>
+        </div>
+
+        <div class="title-contra">
+            <h2 id="tituloContra-Cheque"> Seus Contra-Cheques</h2>
+        </div>
+        <form action="gerar_holerite.php" method="POST">
+            <div class="table">
+                <div class="title-table">
+                    <div class="cell">MÊS DO PROCESSO</div>
+                    <div class="cell">EMPRESA/FILIAL</div>
+                    <div class="cell">DATA DE INÍCIO</div>
+                    <div class="cell">DATA FIM</div>
+                    <div class="cell">TIPO DE PROCESSO</div>
+                    <div class="cell">IMPRIMIR</div>
+                </div>
+                <div class="row">
+                    <div class="cell">Abril</div>
+                    <div class="cell">Accenture/Recife</div>
+                    <div class="cell">01/04/2024</div>
+                    <div class="cell">30/04/2024</div>
+                    <div class="cell">Salário</div>
+                    <div class="cell"><a href="/src/holirite.pdf"><button type="button">Imprimir</button></a></div>
+                </div>
+        </form>
+
+        <!--FOOTER-->
+
+        <footer> 
+            <div class="container footer-content">
+                <!-- Logo da empresa -->
+                <div class="company-logo">
+                    <img src="/src/accenture-logo-maior.png" alt="Logo da Accenture" width="266" height="191">
+                </div>
+                <!-- Navegação -->
+                <div class="footer-nav">
+                    <h3> Navegação</h3>
+                    <ul>
+                        <li><a href="/html/menu.html">Home</a></li>
+                        <li><a href="#">Sobre nós</a></li>
+                        <li><a href="#">Contatos</a></li>
+                    </ul>
+                    <h3> Serviços</h3>
+                    <ul>
+                        <li> <a href="/html/formulario(ferias).html"> Solicitar férias</a></li>
+                        <li> <a href="/html/solicitacao(contracheque).html">Solicitar contra-cheque</a> </li>
+                        <li><a href="#">Solicitar vale-transporte</a></li>
+                        <li><a href="#">Solicitar vale alimentação/refeição </a></li>
+                    </ul>
+                </div>
+                <!-- Links rápidos -->
+                <div class="quick-links">
+                    <h3>Links Rápidos </h3>
+                    <ul>
+                        <li><a href="#">Contate-nos</a></li>
+                        <li><a href="#">Perguntas frequentes</a></li>
+                    </ul>
+                </div>
+                <!-- Redes sociais -->
+                <div class="social-media">
+                    <h3> Nossas Redes Sociais </h3>
+                    <ul>
+                        <li><a href="https://www.facebook.com/accenture/?locale=pt_BR"><img src="/src/facebook.png" alt="Facebook"></a></li>
+                        <li><a href="https://www.instagram.com/accenturebrasil/"><img src="/src/instagram.png" alt="Instagram"></a></li>
+                        <li><a href="https://www.linkedin.com/company/accenture/"><img src="/src/linkedln.png" alt="linkedln"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Linha de créditos -->
+            <div class="footer-line">
+                <p>@2024 Squad 04, Residencia 2024.1</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

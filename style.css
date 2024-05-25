@@ -1,0 +1,337 @@
+
+* {
+    font-family: 'Sans Serif Collection', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('/src/background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 20px 40px; 
+    box-shadow: 0px 2px 4px rgba(255, 255, 255, 0.3);
+    background-color: black;
+}
+
+.header ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.header ul li {
+    display: inline-block;
+    margin-right: 50px;
+}
+
+.header {
+    border-bottom: 1px solid white; /* Adiciona uma borda branca na parte inferior */
+}
+
+.header ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.header ul li a:hover {
+    color: rgb(104, 2, 151);
+}
+
+.meio {
+    flex: 1; /* Faz o menu ocupar todo o espaço disponível */
+    text-align: center; /* Centraliza o texto */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.meio li {
+    display: inline-block;
+    margin-right: 50px;
+}
+
+.meio li:last-child {
+    margin-right: 0; /* Remove a margem direita do último item */
+}
+
+.meio li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.meio li a:hover {
+    color: rgb(104, 2, 151);
+}
+
+
+.icons {
+    text-align: right;
+
+}
+
+.icons img {
+    width: 30px; /* Aumenta o tamanho do ícone */
+    height: 30px; /* Aumenta o tamanho do ícone */
+    margin-right: 10px; /* Adicione espaçamento à direita, conforme necessário */
+}
+
+
+.imagemlogo {
+    position: absolute;
+    top: 17px;
+    left: 24px;
+    width: 10px; /* Ajustar tamanho da logo conforme necessário */
+    height: 10px;
+}
+
+.title {
+    text-align: center; /* Centraliza o texto */
+    margin-top: 50px; /* Adiciona um espaço superior */
+    color: white;
+    font-size: 30px;
+}
+
+
+.search-bar {
+    background-color: #f2f2f2;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 20px; /* Cantos arredondados */
+    width: 1500px; /* Aumentando a largura */
+    margin: 0 auto;
+    margin-bottom: 80px;
+}
+
+
+.search-bar input[type="text"] {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 16px;
+    width: 1420px; /* Aumentando a largura */
+}
+
+.search-bar button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.search-bar button img {
+    width: 20px;
+    height: 20px;
+}
+
+.right-column{ 
+    margin-right: 330px;
+    float: right; 
+    width: 30%;
+}
+
+.left-column{ 
+    margin-left: 170px;
+    float: left; 
+    width: 30%;
+}
+
+.button {
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    background-color: #7600B0;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 130%; 
+    height: 80px;
+    font-size: 20px;
+    text-align: left;
+}
+
+.button:hover {
+    background-color: rgb(65, 4, 93);
+}
+
+.more {
+    margin-top: 30px; /* Adiciona espaço entre a seção "more" e o conteúdo acima */
+}
+
+.more img {
+    margin-top: 750px;
+    margin-left: 170px;
+    position: absolute; 
+    left: 0; 
+    top: 0;
+}
+
+.textos {
+    font-size: 20px;
+    margin-left: 900px;
+    margin-top: 380px;
+    color: white;
+}
+.textos h2 {
+    line-height: 1.5;
+}
+
+.textos p {
+    margin-top: 15px;
+    line-height: 1.7;
+}
+
+.btn-primary {
+    width: 30px;
+    height: 30px;
+    background-color: #7600B0;
+    color: white;
+    font-size: 30px;
+    line-height: 30px; /* Igual à altura do botão */
+    padding: 0 10px; /* Espaçamento interno para centralizar a seta */
+    border: none;
+    margin-top: 130px;
+}
+
+.btn-primary:hover {
+    background-color: darkpurple; /* Altera a cor de fundo quando o mouse passa sobre o botão */
+    cursor: pointer; /* Altera o cursor para indicar que o botão é clicável */
+}
+
+.more a {
+    color: white;
+    margin-left: 600px;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+.more a:hover {
+    color: #ba5ee8;
+}
+.btn-primary:hover {
+    background-color: #ba5ee8;
+}
+
+footer {
+    width: 100%; /* Mudado para ajustar à largura da tela */
+    background-color: #1D1D1D;
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+    margin-top: 200px;
+}
+
+footer .footer-content {
+    display: flex;
+    justify-content: space-between; /* Distribui as colunas igualmente */
+    flex-wrap: wrap; /* Permite que as colunas quebrem para baixo em telas menores */
+    background: none;
+}
+
+footer .company-logo {
+    flex: 1; /* Ajusta a largura da coluna para ocupar o espaço disponível */
+    text-align: left; /* Alinha o logo à esquerda */
+    background: none;
+}
+
+footer .company-logo img {
+    background: transparent;
+    margin-left: 50px;
+}
+
+footer .footer-nav,
+footer .quick-links,
+footer .social-media {
+    flex: 1; /* Ajusta a largura das colunas para ocupar o espaço disponível */
+    text-align: left; /* Alinha o conteúdo à esquerda */
+    margin-bottom: 20px; /* Adiciona um espaço entre as colunas */
+    background: none;
+
+}
+
+footer .footer-line {
+    clear: both; /* Limpa as flutuações anteriores */
+    margin-top: 20px; /* Adiciona um espaço entre o conteúdo e a linha de créditos */
+    background: none;
+
+}
+
+/* Estilos para as colunas */
+footer .footer-nav h3,
+footer .quick-links h3,
+footer .social-media h3 {
+    margin-bottom: 10px; /* Adiciona um espaço inferior aos títulos */
+    background: none;
+
+}
+
+footer .footer-nav ul,
+footer .quick-links ul,
+footer .social-media ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    background: none;
+
+}
+
+footer .footer-nav li,
+footer .quick-links li,
+footer .social-media li {
+    margin-bottom: 5px; /* Adiciona um espaço inferior entre os itens */
+    background: none;
+
+}
+
+footer .footer-nav a,
+footer .quick-links a,
+footer .social-media a {
+    color: #9d0ae7;
+    text-decoration: none;
+    transition: color 0.3s;
+    background: none;
+
+}
+
+footer .footer-nav a:hover,
+footer .quick-links a:hover,
+footer .social-media a:hover {
+    color: rgb(104, 2, 151);
+    background: none;
+
+}
+
+footer .footer-line p {
+    border-top: 1px solid rgb(136, 136, 136); /* Adiciona uma borda superior */
+    padding-top: 2%; /* Adiciona um espaço entre a linha e o texto */
+}
+
+
+footer .footer-line p{
+    background: none;
+}
+
+footer .social-media img {
+    background: none;
+}
+
+footer .social-media ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+

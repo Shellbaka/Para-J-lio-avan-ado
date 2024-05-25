@@ -1,0 +1,394 @@
+/*HEADER*/ 
+
+* {
+    font-family: 'Sans Serif Collection', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('/src/background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 20px 40px; 
+    box-shadow: 0px 2px 4px rgba(255, 255, 255, 0.3);
+    background-color: black;
+    border-bottom: 1px solid white; /* Adiciona uma borda branca na parte inferior */
+}
+
+.header ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.header ul li {
+    display: inline-block;
+    margin-right: 50px;
+}
+
+.header ul li:last-child {
+    margin-right: 0; /* Remove a margem direita do último item */
+}
+
+.header ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.header ul li a:hover {
+    color: rgb(104, 2, 151);
+}
+
+.meio {
+    flex: 1; /* Faz o menu ocupar todo o espaço disponível */
+    text-align: center; /* Centraliza o texto */
+}
+
+.meio li {
+    display: inline-block;
+    margin-right: 50px;
+}
+
+.meio li:last-child {
+    margin-right: 0; /* Remove a margem direita do último item */
+}
+
+.meio li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.meio li a:hover {
+    color: rgb(104, 2, 151);
+}
+
+.icons img {
+    width: 30px; /* Aumenta o tamanho do ícone */
+    height: 30px; /* Aumenta o tamanho do ícone */
+    margin-right: 10px; /* Adicione espaçamento à direita, conforme necessário */
+}
+
+.imagemlogo {
+    position: absolute;
+    top: 20px;
+    left: 24px;
+    width: 60px; /* Ajustar tamanho da logo conforme necessário */
+    height: 30px;
+}
+
+/* CORPO DO SITE   */
+.etapa {
+    text-align: center;
+}
+
+.periodo-container {
+    width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #151515;
+    display: flex;
+    text-align: center;
+    margin-top: 90px; 
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.login-title {
+    margin-bottom: 30px;
+    font-size: 20px;
+    color: white;
+}
+
+.subtitle {
+    color: white;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.form-label {
+    color: white;
+    margin-left: 30px;
+}
+
+.periodo-button {
+    margin: 10px;
+    padding: 10px 160px;
+    font-size: 16px;
+    border: none;
+    background-color: #3A3A3A;
+    cursor: pointer;
+    border-radius: 5px;
+    color: white;
+    
+}
+
+.periodo-button:focus,
+.periodo-button:hover {
+    background-color: #ae0cff;
+    color: white;
+}
+
+.confirmacao-container { 
+    width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #151515;
+    display: flex;
+    text-align: center;
+    margin-top: 90px; 
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.form-group {
+    width: 500px;
+    margin: 0 auto;
+    padding: 5px;
+    text-align: left;
+    margin-top: -10px;
+}
+
+.confirmacao-input {
+    width: 90%;
+    padding: 30px;
+    font-size: 16px;
+    border: 1px solid #151515;
+    border-radius: 6px;
+    display: block;
+    margin: 0 auto; /* Centraliza horizontalmente */
+    background-color: #3A3A3A;
+    margin-top: 5px;    
+}
+.confirmacao-button { 
+    background-color: #7600B0;
+    color: white;
+    padding: 5px 30px;
+    border: none;
+    font-size: 18px;
+    margin-top: 30px;
+    border-radius: 5px;
+    margin: 20px;
+}
+
+.confirmacao-button a {
+    text-decoration: none;
+    color: white;
+}
+
+
+.links {
+    display: flex;
+    flex-direction: column;
+}
+
+.atendimentoCliente,
+.Voltarmenu {
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 5px 0;
+    color: #A700F9; 
+    background: NONE;
+    margin-top: -10px;
+}
+
+.atendimentoCliente:hover,
+.Voltarmenu:hover {
+    color: #7600B0; 
+}
+
+.confirmacao-container {
+    text-align: center; /* Centralizar o conteúdo */
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+
+.form-input {
+    width: 100%; /* Preencher toda a largura disponível */
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #444; /* Cor de fundo cinza escuro */
+    color: #fff; /* Cor do texto branco */
+    box-sizing: border-box; /* Incluir o padding no tamanho total */
+}
+.transporte-select{
+    width: 100%; /* Preencher toda a largura disponível */
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #444; /* Cor de fundo cinza escuro */
+    color: #fff; /* Cor do texto branco */
+    box-sizing: border-box; /* Incluir o padding no tamanho total */
+}
+.form-label{
+    margin-left: 27px;
+}
+.custom-file-upload {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border: 2px solid black;
+    border-radius: 25px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.custom-file-upload .upload-button {
+    width: 40%;
+    background-color: #7600B0;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    border-right: 2px solid #ccc;
+}
+
+.custom-file-upload .file-name {
+    width: 60%;
+    background-color:#444;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.botoes-container {
+    text-align: center;
+}
+
+.confirmacao-button {
+    background-color: #7600B0;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.confirmacao-button:hover {
+    background-color: darkviolet;
+}
+
+.download-link {
+    display: block;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #ae0cff;
+}
+
+/*FOOTER */
+
+footer {
+    width: 100%; /* Mudado para ajustar à largura da tela */
+    background-color: #1D1D1D;
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+    margin-top: 200px;
+}
+
+footer .footer-content {
+    display: flex;
+    justify-content: space-between; /* Distribui as colunas igualmente */
+    flex-wrap: wrap; /* Permite que as colunas quebrem para baixo em telas menores */
+}
+
+footer .company-logo {
+    flex: 1; /* Ajusta a largura da coluna para ocupar o espaço disponível */
+    text-align: left; /* Alinha o logo à esquerda */
+}
+
+footer .company-logo img {
+    margin-left: 50px;
+}
+
+footer .footer-nav,
+footer .quick-links,
+footer .social-media {
+    flex: 1; /* Ajusta a largura das colunas para ocupar o espaço disponível */
+    text-align: left; /* Alinha o conteúdo à esquerda */
+    margin-bottom: 20px; /* Adiciona um espaço entre as colunas */
+}
+
+footer .footer-line {
+    clear: both; /* Limpa as flutuações anteriores */
+    margin-top: 20px; /* Adiciona um espaço entre o conteúdo e a linha de créditos */
+}
+
+/* Estilos para as colunas */
+footer .footer-nav h3,
+footer .quick-links h3,
+footer .social-media h3 {
+    margin-bottom: 10px; /* Adiciona um espaço inferior aos títulos */
+}
+
+footer .footer-nav ul,
+footer .quick-links ul,
+footer .social-media ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer .footer-nav li,
+footer .quick-links li,
+footer .social-media li {
+    margin-bottom: 5px; /* Adiciona um espaço inferior entre os itens */
+}
+
+footer .footer-nav a,
+footer .quick-links a,
+footer .social-media a {
+    color: #9d0ae7;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer .footer-nav a:hover,
+footer .quick-links a:hover,
+footer .social-media a:hover {
+    color: rgb(104, 2, 151);
+}
+
+footer .footer-line p {
+    border-top: 1px solid rgb(136, 136, 136); /* Adiciona uma borda superior */
+    padding-top: 2%; /* Adiciona um espaço entre a linha e o texto */
+}
+
+footer .social-media img {
+    background: none;
+}
+
+footer .social-media ul li {
+    display: inline-block;
+    margin-right: 20px;
+}

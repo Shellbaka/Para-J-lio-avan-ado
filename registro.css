@@ -1,0 +1,355 @@
+/*HEADER*/ 
+
+* {
+    font-family: 'Sans Serif Collection', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('/src/background.png'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 20px 40px; 
+    box-shadow: 0px 2px 4px rgba(255, 255, 255, 0.3);
+    background-color: black;
+}
+
+.header ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.header ul li {
+    display: inline-block;
+    margin-right: 50px;
+}
+
+.header {
+    border-bottom: 1px solid white; 
+}
+
+.header ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.header ul li a:hover {
+    color: rgb(104, 2, 151);
+}
+
+.meio {
+    flex: 1; 
+    text-align: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.meio li {
+    display: inline-block;
+    margin-right: 50px;
+}
+
+.meio li:last-child {
+    margin-right: 0; 
+}
+
+.meio li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.meio li a:hover {
+    color: rgb(104, 2, 151);
+}
+
+
+.icons {
+    text-align: right;
+}
+
+.icons img { 
+    width: 30px; 
+    height: 30px; 
+    margin-right: 5px; 
+}
+
+.imagemlogo { 
+    position: absolute;
+    top: 25px;
+    left: 24px;
+    width: 10px; 
+    height: 10px;
+}
+
+.name-group,
+.lastname-group {
+    display: inline-block;
+    width: calc(45% - 5px); 
+    margin-bottom: 20px; 
+    margin-left: 15px;
+}
+
+.lastname-group {
+    margin-left: 30px; 
+}
+
+/* MENU SUSPENSO */
+
+.dropbtn {
+    background: none;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 15px;
+}
+
+.dropbtn:hover {
+    color: #29003e;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #000000;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); 
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: #000000;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* ELEMENTOS DO CORPO DO SITE */
+
+.registre-login a:hover {
+    color: #DF9EFF;
+}
+
+.login-container {
+    width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #151515;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    margin-top: 80px; 
+    border-radius: 10px;
+}
+
+.login-title {
+    font-size: 3.2em;
+    margin-bottom: -20px;
+    color: #FFFFFF;
+    padding: 5px;
+}
+
+.login-subtitulo { 
+    font-size: 1.3em;
+    color: #FFFFFF;
+    
+}
+
+.registre-login { 
+    font-size: 16px;
+    margin-top: -20px;
+    color: #FFFFFF;
+}
+
+.login-form {
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 5px;
+}
+
+.form-label {
+    margin-left: 30px;
+    font-size: 16px;
+    color: #FFFFFF;
+}
+
+.form-input {
+    width: 90%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #151515;
+    border-radius: 7px;
+    display: block;
+    margin: 0 auto; 
+    background-color: #3A3A3A;
+    color: white;
+}
+
+.login-button {
+    background-color: #7600B0;
+    color: white;
+    padding: 5px 190px; 
+    border: none;
+    border-radius: 5px;
+    font-size: 18px; 
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 30px; 
+    display: block; 
+    margin: 0 auto; 
+    margin-top: 30px;
+}
+
+.login-button:hover {
+    color: #000000;
+    background-color: rgb(196, 136, 224);
+}
+
+.registre-login a {
+    color: #9d0ae7;
+    text-decoration: none;
+    font-size: 18px;
+    margin: 25px 10px;
+    transition: color 0.3s;
+}
+
+.email-form {
+    margin-top: -10px;
+}
+
+/*FOOTER*/ 
+
+footer {
+    width: 100%; 
+    background-color: #1D1D1D;
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+    margin-top: 200px;
+}
+
+footer .footer-content {
+    display: flex;
+    justify-content: space-between; 
+    flex-wrap: wrap;
+    background: none;
+}
+
+footer .company-logo {
+    flex: 1; 
+    text-align: left;
+    background: none;
+}
+
+footer .company-logo img {
+    background: transparent;
+    margin-left: 50px;
+}
+
+footer .footer-nav,
+footer .quick-links,
+footer .social-media {
+    flex: 1; 
+    text-align: left; 
+    margin-bottom: 20px; 
+    background: none;
+
+}
+
+footer .footer-line {
+    clear: both; 
+    margin-top: 20px; 
+    background: none;
+
+}
+
+footer .footer-nav h3,
+footer .quick-links h3,
+footer .social-media h3 {
+    margin-bottom: 10px; 
+    background: none;
+
+}
+
+footer .footer-nav ul,
+footer .quick-links ul,
+footer .social-media ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    background: none;
+
+}
+
+footer .footer-nav li,
+footer .quick-links li,
+footer .social-media li {
+    margin-bottom: 5px; 
+    background: none;
+
+}
+
+footer .footer-nav a,
+footer .quick-links a,
+footer .social-media a {
+    color: #9d0ae7;
+    text-decoration: none;
+    transition: color 0.3s;
+    background: none;
+
+}
+
+footer .footer-nav a:hover,
+footer .quick-links a:hover,
+footer .social-media a:hover {
+    color: rgb(104, 2, 151);
+    background: none;
+
+}
+
+footer .footer-line p {
+    border-top: 1px solid rgb(136, 136, 136); 
+    padding-top: 2%; 
+}
+
+
+footer .footer-line p{
+    background: none;
+}
+
+footer .social-media img {
+    background: none;
+}
+
+footer .social-media ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
